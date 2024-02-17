@@ -4,13 +4,141 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ticketing</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
       rel="stylesheet"
       type="text/css"
     />
-    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body></body>
+  <body>
+    <div class="flex justify-center mx-10">
+      <div class="container mx-10">
+        <!-- navbar  -->
+        <div class="navbar bg-base-100">
+          <div class="navbar-start">
+            <div class="dropdown">
+              <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h8m-8 6h16"
+                  />
+                </svg>
+              </div>
+              <ul
+                tabindex="0"
+                class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li><a>Home</a></li>
+                <li><a>About</a></li>
+                <li><a>Destination</a></li>
+                <li><a>Search</a></li>
+              </ul>
+            </div>
+            <a class="btn btn-ghost text-xl">P-Ticket</a>
+          </div>
+          <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+              <li><a>Home</a></li>
+              <li><a>About</a></li>
+              <li><a>Destination</a></li>
+              <li><a>Search</a></li>
+            </ul>
+          </div>
+          <div class="navbar-end">
+            <button
+              class="btn bg-green-100 text-green-300 font-bold hover:bg-green-200"
+            >
+              Bus
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 17C4 17.5304 4.21071 18.0391 4.58579 18.4142C4.96086 18.7893 5.46957 19 6 19C6.53043 19 7.03914 18.7893 7.41421 18.4142C7.78929 18.0391 8 17.5304 8 17M4 17C4 16.4696 4.21071 15.9609 4.58579 15.5858C4.96086 15.2107 5.46957 15 6 15C6.53043 15 7.03914 15.2107 7.41421 15.5858C7.78929 15.9609 8 16.4696 8 17M4 17H2V6C2 5.73478 2.10536 5.48043 2.29289 5.29289C2.48043 5.10536 2.73478 5 3 5H17C18.3261 5 19.5979 5.7375 20.5355 7.05025C21.4732 8.36301 22 10.1435 22 12M8 17H16M16 17C16 17.5304 16.2107 18.0391 16.5858 18.4142C16.9609 18.7893 17.4696 19 18 19C18.5304 19 19.0391 18.7893 19.4142 18.4142C19.7893 18.0391 20 17.5304 20 17M16 17C16 16.4696 16.2107 15.9609 16.5858 15.5858C16.9609 15.2107 17.4696 15 18 15C18.5304 15 19.0391 15.2107 19.4142 15.5858C19.7893 15.9609 20 16.4696 20 17M20 17H22V12M22 12H17.5L16 5M2 10H17M7 5V10M12 5V10"
+                  stroke="#1DD100"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <!-- banner -->
+        <div
+          class="hero h-96"
+          style="background-image: url(./images/banner.png)"
+        >
+          <div class="hero-overlay bg-opacity-60"></div>
+          <div class="hero-content text-center text-neutral-content">
+            <div class="max-w-md">
+              <h1 class="mb-5 text-4xl font-bold">End-to-End Travek with</h1>
+              <!-- <br /> -->
+              <h1 class="mb-5 text-4xl text-lime-500 font-bold">P-Paribohon</h1>
+              <p class="mb-5">
+                Now trips have become more convenient than before. Take a ride
+                with us and have a premium journey experience.
+              </p>
+              <button class="btn btn-primary border-0 bg-lime-500">
+                Get Started
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- cuppon  -->
+        <div class="flex w-full my-10">
+          <div class="card w-96 bg-base-100 grid flex-grow bg-amber-300">
+            <div class="card-body h-full">
+              <div class="flex">
+                <div class="grow">
+                  <div class="text-3xl font-bold">15% OFF</div>
+                  <div class="text-xl font-bold">on your next purchase</div>
+                  <div>use by January 2024</div>
+                </div>
+                <div class="grow-0 divider divider-horizontal"></div>
+                <div class="grow grid content-center">
+                  <div class="text-3xl font-bold">NEW15</div>
+                  <div class="text-xl">Cupon Code</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="divider divider-horizontal"></div>
+
+          <div class="card w-96 bg-base-100 grid flex-grow bg-rose-300">
+            <div class="card-body h-full">
+              <div class="flex">
+                <div class="grow">
+                  <div class="text-3xl font-bold">20% OFF</div>
+                  <div class="text-xl font-bold">on your next purchase</div>
+                  <div>use by January 2024</div>
+                </div>
+                <div class="grow-0 divider divider-horizontal"></div>
+                <div class="grow grid content-center">
+                  <div class="text-3xl font-bold">Couple 20</div>
+                  <div class="text-xl font-sm">Cupon Code</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
