@@ -76,20 +76,24 @@ function updateUiTotalPrice() {
 function updateUiGrandPrice(couponPercentage = 0) {
   const element = document.getElementById("grand-price");
   let totalPrice = selectedSeats.length * 550;
-  console.log(totalPrice);
   let discount = totalPrice * couponPercentage;
-  console.log(discount);
   element.innerHTML = totalPrice - discount;
 }
 
 function applyCoupon() {
   let couponElement = document.getElementById("coupon");
   let couponPercentage = 0;
-  if (couponElement.value == "") {
+  if (selectedSeats.length == 0) {
+    alert("No ticket selected");
+  } else if (couponElement.value == "") {
+    alert("No coupon text provided");
   } else if (couponElement.value == "NEW15") {
     couponPercentage = 0.15;
-  } else if (couponElement.value == "Couple20") {
+  } else if (couponElement.value == "Couple 20") {
     couponPercentage = 0.2;
+  } else {
+    alert("Wrong coupon code");
   }
   updateUiGrandPrice(couponPercentage);
+  document.getElementById("coupon-section").remove();
 }
