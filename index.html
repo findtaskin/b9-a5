@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ticketing</title>
     <link rel="stylesheet" href="./style.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./app.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
@@ -159,17 +159,69 @@
         <!-- Seat selection  -->
 
         <div class="shadow-md flex justify-evenly">
-          <div class="shadow-md grow border p-5 m-5">
+          <div class="grow p-0 m-5">
             <div class="">
-              <div class="border-b-2 border-dashed pb-2">Select your seat</div>
+              <div class="border-b-2 text-xl font-semibold border-dashed pb-2">
+                Select your seat
+              </div>
               <div class="flex justify-between border-b-2 border-dashed py-2">
-                <div>Available</div>
-                <div>Selected</div>
+                <div class="flex justify-center items-center">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M3.83333 10.8333C4.45217 10.8333 5.04566 11.0792 5.48325 11.5168C5.92083 11.9543 6.16667 12.5478 6.16667 13.1667V15.5H17.8333V13.1667C17.8333 12.5478 18.0792 11.9543 18.5168 11.5168C18.9543 11.0792 19.5478 10.8333 20.1667 10.8333M3.83333 10.8333C3.21449 10.8333 2.621 11.0792 2.18342 11.5168C1.74583 11.9543 1.5 12.5478 1.5 13.1667V17.8333C1.5 18.4522 1.74583 19.0457 2.18342 19.4832C2.621 19.9208 3.21449 20.1667 3.83333 20.1667H20.1667C20.7855 20.1667 21.379 19.9208 21.8166 19.4832C22.2542 19.0457 22.5 18.4522 22.5 17.8333V13.1667C22.5 12.5478 22.2542 11.9543 21.8166 11.5168C21.379 11.0792 20.7855 10.8333 20.1667 10.8333M3.83333 10.8333V5C3.83333 4.07174 4.20208 3.1815 4.85846 2.52513C5.51484 1.86875 6.40508 1.5 7.33333 1.5H16.6667C17.5949 1.5 18.4852 1.86875 19.1415 2.52513C19.7979 3.1815 20.1667 4.07174 20.1667 5V10.8333M5 20.1667V22.5M19 20.1667V22.5"
+                      stroke="#030712"
+                      stroke-opacity="0.5"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+
+                  <span class="text-lg pl-2 font-semibold text-gray-400">
+                    Available
+                  </span>
+                </div>
+                <div class="flex justify-center items-center">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M3.83333 10.8333C4.45217 10.8333 5.04566 11.0792 5.48325 11.5168C5.92083 11.9543 6.16667 12.5478 6.16667 13.1667V15.5H17.8333V13.1667C17.8333 12.5478 18.0792 11.9543 18.5168 11.5168C18.9543 11.0792 19.5478 10.8333 20.1667 10.8333C20.7855 10.8333 21.379 11.0792 21.8166 11.5168C22.2542 11.9543 22.5 12.5478 22.5 13.1667V17.8333C22.5 18.4522 22.2542 19.0457 21.8166 19.4832C21.379 19.9208 20.7855 20.1667 20.1667 20.1667H3.83333C3.21449 20.1667 2.621 19.9208 2.18342 19.4832C1.74583 19.0457 1.5 18.4522 1.5 17.8333V13.1667C1.5 12.5478 1.74583 11.9543 2.18342 11.5168C2.621 11.0792 3.21449 10.8333 3.83333 10.8333Z"
+                      fill="#1DD100"
+                    />
+                    <path
+                      d="M3.83333 10.8333V5C3.83333 4.07174 4.20208 3.1815 4.85846 2.52513C5.51484 1.86875 6.40508 1.5 7.33333 1.5H16.6667C17.5949 1.5 18.4852 1.86875 19.1415 2.52513C19.7979 3.1815 20.1667 4.07174 20.1667 5V10.8333"
+                      fill="#1DD100"
+                    />
+                    <path d="M5 20.1667V22.5Z" fill="#1DD100" />
+                    <path d="M19 20.1667V22.5Z" fill="#1DD100" />
+                    <path
+                      d="M3.83333 10.8333C4.45217 10.8333 5.04566 11.0792 5.48325 11.5168C5.92083 11.9543 6.16667 12.5478 6.16667 13.1667V15.5H17.8333V13.1667C17.8333 12.5478 18.0792 11.9543 18.5168 11.5168C18.9543 11.0792 19.5478 10.8333 20.1667 10.8333M3.83333 10.8333C3.21449 10.8333 2.621 11.0792 2.18342 11.5168C1.74583 11.9543 1.5 12.5478 1.5 13.1667V17.8333C1.5 18.4522 1.74583 19.0457 2.18342 19.4832C2.621 19.9208 3.21449 20.1667 3.83333 20.1667H20.1667C20.7855 20.1667 21.379 19.9208 21.8166 19.4832C22.2542 19.0457 22.5 18.4522 22.5 17.8333V13.1667C22.5 12.5478 22.2542 11.9543 21.8166 11.5168C21.379 11.0792 20.7855 10.8333 20.1667 10.8333M3.83333 10.8333V5C3.83333 4.07174 4.20208 3.1815 4.85846 2.52513C5.51484 1.86875 6.40508 1.5 7.33333 1.5H16.6667C17.5949 1.5 18.4852 1.86875 19.1415 2.52513C19.7979 3.1815 20.1667 4.07174 20.1667 5V10.8333M5 20.1667V22.5M19 20.1667V22.5"
+                      stroke="#1DD100"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <span class="text-lg pl-2 text-green-500 font-semibold"
+                    >Selected</span
+                  >
+                </div>
               </div>
               <div class="flex justify-between py-2">
                 <div></div>
                 <div
-                  class="w-24 h-12 bg-gray-300 rounded-lg flex justify-center items-center"
+                  class="w-24 h-12 bg-gray-200 rounded-lg flex justify-center items-center"
                 >
                   <svg
                     width="32"
@@ -197,12 +249,16 @@
                   A
                 </div>
                 <button
-                  class="w-24 h-12 bg-gray-300 rounded-lg flex justify-center items-center"
+                  class="w-24 h-12 bg-gray-200 rounded-lg flex justify-center items-center"
+                  id="A1"
+                  onclick="selectSeat('A1')"
                 >
                   A1
                 </button>
                 <button
-                  class="w-24 h-12 bg-gray-300 rounded-lg flex justify-center items-center"
+                  class="w-24 h-12 bg-gray-200 rounded-lg flex justify-center items-center"
+                  id="A2"
+                  onclick="selectSeat('A2')"
                 >
                   A2
                 </button>
@@ -210,12 +266,16 @@
                   class="w-12 h-12 rounded-lg flex justify-center items-center"
                 ></div>
                 <button
-                  class="w-24 h-12 bg-gray-300 rounded-lg flex justify-center items-center"
+                  class="w-24 h-12 bg-gray-200 rounded-lg flex justify-center items-center"
+                  id="A3"
+                  onclick="selectSeat('A3')"
                 >
                   A3
                 </button>
                 <button
-                  class="w-24 h-12 bg-gray-300 rounded-lg flex justify-center items-center"
+                  class="w-24 h-12 bg-gray-200 rounded-lg flex justify-center items-center"
+                  id="A4"
+                  onclick="selectSeat('A4')"
                 >
                   A4
                 </button>
@@ -228,12 +288,16 @@
                   B
                 </div>
                 <button
-                  class="w-24 h-12 bg-gray-300 rounded-lg flex justify-center items-center"
+                  class="w-24 h-12 bg-gray-200 rounded-lg flex justify-center items-center"
+                  id="B1"
+                  onclick="selectSeat('B1')"
                 >
                   B1
                 </button>
                 <button
-                  class="w-24 h-12 bg-gray-300 rounded-lg flex justify-center items-center"
+                  class="w-24 h-12 bg-gray-200 rounded-lg flex justify-center items-center"
+                  id="B2"
+                  onclick="selectSeat('B2')"
                 >
                   B2
                 </button>
@@ -241,20 +305,27 @@
                   class="w-12 h-12 rounded-lg flex justify-center items-center"
                 ></div>
                 <button
-                  class="w-24 h-12 bg-gray-300 rounded-lg flex justify-center items-center"
+                  class="w-24 h-12 bg-gray-200 rounded-lg flex justify-center items-center"
+                  id="B3"
+                  onclick="selectSeat('B3')"
                 >
                   B3
                 </button>
                 <button
-                  class="w-24 h-12 bg-gray-300 rounded-lg flex justify-center items-center"
+                  class="w-24 h-12 bg-gray-200 rounded-lg flex justify-center items-center"
+                  id="B4"
+                  onclick="selectSeat('B4')"
                 >
                   B4
                 </button>
               </div>
             </div>
           </div>
-          <div class="shadow-md grow border p-5 m-5">
-            <div>Select your seat</div>
+          <div class="border-l-2 border-gray-400 border-dashed my-5"></div>
+          <div class="grow m-5">
+            <div class="border-b-2 text-xl font-semibold border-dashed pb-2">
+              Select your seat
+            </div>
           </div>
         </div>
 
