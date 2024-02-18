@@ -10,6 +10,7 @@ function selectSeat(seatNumber) {
   updateUiSeatCount();
   updateUiTotalPrice();
   updateUiGrandPrice();
+  updateUiNextButton();
 }
 
 function addSeat(seatNumber) {
@@ -85,15 +86,43 @@ function applyCoupon() {
   let couponPercentage = 0;
   if (selectedSeats.length == 0) {
     alert("No ticket selected");
+    return;
   } else if (couponElement.value == "") {
     alert("No coupon text provided");
+    return;
   } else if (couponElement.value == "NEW15") {
     couponPercentage = 0.15;
   } else if (couponElement.value == "Couple 20") {
     couponPercentage = 0.2;
   } else {
     alert("Wrong coupon code");
+    return;
   }
   updateUiGrandPrice(couponPercentage);
   document.getElementById("coupon-section").remove();
+}
+
+function applyNext() {
+  const phone = document.getElementById("phone");
+  const successModal = document.getElementById("success-modal");
+  if (selectedSeats.length == 0) {
+    alert("No ticket selected");
+    return;
+  } else if (!phone.value) {
+    alert("No Phone Number provided. \nPhone number is mandatory.");
+    return;
+  } else {
+    successModal.classList.toggle("hidden");
+    successModal.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
+function applyContinue() {
+  const successModal = document.getElementById("success-modal");
+  successModal.classList.toggle("hidden");
+}
+
+function applyGetStarted() {
+  const seatSelection = document.getElementById("seat-selection");
+  seatSelection.scrollIntoView({ behavior: "smooth", block: "start" });
 }
