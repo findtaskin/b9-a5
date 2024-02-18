@@ -182,7 +182,6 @@
                       stroke-linejoin="round"
                     />
                   </svg>
-
                   <span class="text-lg pl-2 font-semibold text-gray-400">
                     Available
                   </span>
@@ -213,9 +212,9 @@
                       stroke-linejoin="round"
                     />
                   </svg>
-                  <span class="text-lg pl-2 text-green-500 font-semibold"
-                    >Selected</span
-                  >
+                  <span class="text-lg pl-2 text-green-500 font-semibold">
+                    Selected
+                  </span>
                 </div>
               </div>
               <div class="flex justify-between py-2">
@@ -323,8 +322,24 @@
           </div>
           <div class="border-l-2 border-gray-400 border-dashed my-5"></div>
           <div class="grow m-5">
-            <div class="border-b-2 text-xl font-semibold border-dashed pb-2">
+            <div class="text-xl font-semibold border-b-2 border-dashed pb-2">
               Select your seat
+            </div>
+            <div class="p-5 m-0 rounded-lg bg-gray-50 mt-5">
+              <div class="flex justify-between border-b-2 border-dashed pb-2">
+                <div>
+                  Seat
+                  <span
+                    class="bg-green-400 rounded-full text-white py-0 px-2 text-xs"
+                    id="seat-count"
+                  >
+                    0
+                  </span>
+                </div>
+                <div>Class</div>
+                <div>Price</div>
+              </div>
+              <div id="selected-ticket-rows"></div>
             </div>
           </div>
         </div>

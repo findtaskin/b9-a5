@@ -1,11 +1,13 @@
 const selectedSeats = [];
-async function selectSeat(seatNumber) {
-  if (selectedSeats.includes(seatNumber)) {
-    await removeSeat(seatNumber);
-  } else {
-    await addSeat(seatNumber);
-  }
 
+function selectSeat(seatNumber) {
+  if (selectedSeats.includes(seatNumber)) {
+    removeSeat(seatNumber);
+  } else {
+    addSeat(seatNumber);
+  }
+  updateTicketTable();
+  updateSeatCount();
   console.log(selectedSeats);
 }
 
@@ -34,4 +36,29 @@ function markUiAsSeatTaken(seatNumber) {
 function markUiAsSeatRemoved(seatNumber) {
   const element = document.getElementById(seatNumber);
   element.classList.remove("bg-green-500", "text-white", "font-semibold");
+}
+
+function updateSeatCount() {
+  const element = document.getElementById("seat-count");
+  element.innerHTML = selectedSeats.length;
+}
+
+function updateTicketTable() {
+  const element = document.getElementById("selected-ticket-rows");
+  let htmlRowText = "";
+  selectedSeats.forEach((seatNumber) => {
+    htmlRowText += getTicketRow(seatNumber);
+  });
+  element.innerHTML = htmlRowText;
+}
+
+function getTicketRow(seatNumber) {
+  const htmlSection = `
+  <div class="flex justify-between border-b-2 border-dashed py-2">
+      <div>${seatNumber}</div>
+      <div>Economy</div>
+      <div>550</div>
+  </div>
+`;
+  return htmlSection;
 }
