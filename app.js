@@ -10,12 +10,13 @@ function selectSeat(seatNumber) {
   updateUiSeatCount();
   updateUiTotalPrice();
   updateUiGrandPrice();
-  updateUiNextButton();
+  updateUiOfSeatsLeft();
+  // generateSeats();
 }
 
 function addSeat(seatNumber) {
   if (selectedSeats.length > 3) {
-    alert("4 seats max");
+    alert("You can't select more than 4 seats.");
     return;
   }
 
@@ -51,10 +52,12 @@ function updateUiSeatCount() {
 function updateUiTicketTable() {
   const element = document.getElementById("selected-ticket-rows");
   let htmlRowText = "";
-  selectedSeats.forEach((seatNumber) => {
-    htmlRowText += getTicketRowHtml(seatNumber);
-  });
-  if (htmlRowText.length == 0) htmlRowText = "No Tickets Selected";
+  for (let i = 0; i < selectedSeats.length; i++) {
+    htmlRowText += getTicketRowHtml(selectedSeats[i]);
+  }
+  if (htmlRowText.length === 0) {
+    htmlRowText = `<div class="py-2">No seats were selected. (max 4)</div>`;
+  }
   element.innerHTML = htmlRowText;
 }
 
@@ -78,14 +81,28 @@ function updateUiGrandPrice(couponPercentage = 0) {
   const element = document.getElementById("grand-price");
   let totalPrice = selectedSeats.length * 550;
   let discount = totalPrice * couponPercentage;
-  element.innerHTML = totalPrice - discount;
+  let grandTotal = totalPrice - discount;
+  let grandTotalText = grandTotal;
+  if (couponPercentage > 0) {
+    grandTotalText = `
+    <span class='badge'>${couponPercentage * 100}% discount </span> 
+     ${grandTotal}`;
+  }
+  element.innerHTML = grandTotalText;
+}
+
+function updateUiOfSeatsLeft() {
+  const seatLeft = document.getElementById("seats-left");
+  seatLeft.innerText = 40 - selectedSeats.length + " seats left";
 }
 
 function applyCoupon() {
   let couponElement = document.getElementById("coupon");
   let couponPercentage = 0;
   if (selectedSeats.length == 0) {
-    alert("No ticket selected");
+    alert(
+      "Please select a seat. No seats were selected. You can only select a maximum of 4 seats."
+    );
     return;
   } else if (couponElement.value == "") {
     alert("No coupon text provided");
@@ -106,10 +123,12 @@ function applyNext() {
   const phone = document.getElementById("phone");
   const successModal = document.getElementById("success-modal");
   if (selectedSeats.length == 0) {
-    alert("No ticket selected");
+    alert(
+      "Please select a seat. No seats were selected. You can only select a maximum of 4 seats."
+    );
     return;
   } else if (!phone.value) {
-    alert("No Phone Number provided. \nPhone number is mandatory.");
+    alert("Please provide phone number. \nPhone number is mandatory.");
     return;
   } else {
     successModal.classList.toggle("hidden");
