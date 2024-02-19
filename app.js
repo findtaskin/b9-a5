@@ -136,9 +136,10 @@ function applyNext() {
   }
 }
 
-function applyContinue() {
-  const successModal = document.getElementById("success-modal");
-  successModal.classList.toggle("hidden");
+async function applyContinue() {
+  // const successModal = document.getElementById("success-modal");
+  // successModal.classList.toggle("hidden");
+  window.location.reload();
 }
 
 function applyGetStarted() {
